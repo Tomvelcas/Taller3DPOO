@@ -4,8 +4,8 @@ import uniandes.dpoo.aerolinea.modelo.Aerolinea;
 
 public interface IPersistenciaAerolinea {
 	
-	public void cargarAereolinea(String archivo, Aerolinea aereolinea);
+	public void cargarAerolinea(String archivo, Aerolinea aereolinea);
 	
-	public void salvarAereolinea(String Archivo, Aerolinea aereolinea);
+	public void salvarAerolinea(String Archivo, Aerolinea aereolinea);
 	
 }

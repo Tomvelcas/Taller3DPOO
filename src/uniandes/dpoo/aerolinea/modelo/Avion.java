@@ -6,7 +6,6 @@ public class Avion {
 	
 	//ctor 
 	public Avion(String nombre, int capacidad) {
-		super();
 		this.nombre = nombre;
 		this.capacidad = capacidad;
 	}

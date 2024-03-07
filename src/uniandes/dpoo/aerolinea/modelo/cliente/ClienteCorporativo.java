@@ -14,11 +14,13 @@ public class ClienteCorporativo extends Cliente
 	public int PEQUENA = 3;
 	private String nombreEmpresa;
 	private int tamanoEmpresa;
+	private String id;
 	//ctor
     public ClienteCorporativo(String nombreEmpresa, int tamanoEmpresa) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.tamanoEmpresa = tamanoEmpresa;
+		this.id = ids();
 	}
     //getters
     public String getNombreEmpresa() {
@@ -29,12 +31,26 @@ public class ClienteCorporativo extends Cliente
 		return tamanoEmpresa;
 	}
 	public String getTipoCliente() {
-		return null;
+		return CORPORATIVO;
 	}
 	public String getIdentificador() {
-		return null;
+		return id;
 	}
-    
+	public String ids() {
+	    int numero;
+	    String codigo;
+	    numero = (int) (Math.random() * 10e7);
+	    codigo = String.format("C%07d", numero); 
+
+	    while (codigos.contains(codigo)) {
+	        numero = (int) (Math.random() * 10e7);
+	        codigo = String.format("C%07d", numero);
+	    }
+
+	    codigos.add(codigo); 
+	    return codigo;
+	}
+
     
 	/**
      * Crea un nuevo objeto de tipo a partir de un objeto JSON.
@@ -49,10 +65,6 @@ public class ClienteCorporativo extends Cliente
         int tam = cliente.getInt( "tamanoEmpresa" );
         return new ClienteCorporativo( nombreEmpresa, tam );
     }
-
-
-
-
 
 
 	/**
